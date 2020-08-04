@@ -19,3 +19,8 @@ def add(*args):
 
 if __name__ == '__main__':
     print(add(matrix1, matrix2))
+
+    names = 'bob julian grant sara'.split()
+    ages = '11 22 33 44'.split()
+    print(dict(zip(names, ages)))
+    # print(dict(*names, *ages))

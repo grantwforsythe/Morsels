@@ -10,7 +10,6 @@ def tail(sequence, index=0):
 	if index >= len(result):
 		return result
 	else:
-		
 		return result[len(result)-index:]
 
 if __name__ == '__main__':
