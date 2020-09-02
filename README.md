@@ -14,3 +14,5 @@ This was easier exercise that drew from some more intermediate level concepts; s
 This weeks exercise made use of operation overloading (add, sub, mult) and magic methods.
 # [Week 7](https://github.com/grantwforsythe/Morsels/blob/master/point/deep_flatten.py)
 This weeks exercise made use of generators and recursion. 
+# [Week 8](https://github.com/grantwforsythe/Morsels/blob/master/point/parse_ranges.py)
+This weeks exercise made use of generators.
