@@ -16,3 +16,5 @@ This weeks exercise made use of operation overloading (add, sub, mult) and magic
 This weeks exercise made use of generators and recursion. 
 # [Week 8](https://github.com/grantwforsythe/Morsels/blob/master/point/parse_ranges.py)
 This weeks exercise made use of generators.
+# [Week 9](https://github.com/grantwforsythe/Morsels/blob/master/point/suppress.py)
+This weeks exercise made use of generators, decorators, context managers, and various python modules.
