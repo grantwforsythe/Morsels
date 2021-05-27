@@ -62,7 +62,7 @@ class OrderedSetTests(unittest.TestCase):
         self.assertGreater(beginning_lookup*500, end_lookup)
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_add_and_discard(self):
         numbers = OrderedSet([1, 2, 3])
         numbers.add(3)
