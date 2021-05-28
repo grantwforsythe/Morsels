@@ -18,6 +18,14 @@ class OrderedSet(Sequence, MutableSet):
 
     def __getitem__(self, index):
         return self.order[index]
+    
+    def __eq__(self, other):
+        if isinstance(other, type(self)):
+            return (
+                len(self) == len(other) and
+                all(x == y for x, y in zip(self, other))
+            )
+        return super().__eq__(other)from collections.abc import MutableSet
 
     def add(self, item):
         if item not in self.items:
@@ -28,11 +36,3 @@ class OrderedSet(Sequence, MutableSet):
         if item in self.items:
             self.order.remove(item)
             self.items.remove(item)
-
-    def __eq__(self, other):
-        if isinstance(other, type(self)):
-            return (
-                len(self) == len(other) and
-                all(x == y for x, y in zip(self, other))
-            )
-        return super().__eq__(other)from collections.abc import MutableSet
