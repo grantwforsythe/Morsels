@@ -45,23 +45,40 @@ header,indent_style,indent_size
 """
 import csv
 import sys
-import os
+import argparse
 import configparser
 
-filename = sys.argv[1]
-config_csv = sys.argv[2]
+parser = argparse.ArgumentParser()
+
+parser.add_argument('files', type=str, nargs=2)
+parser.add_argument('--collapsed', action='store_true', help="Collapse output")  # if the argument is present, it will have some truthiness
+
+args = parser.parse_args()
+
+# filename = sys.argv[1]
+# config_csv = sys.argv[2]
 
 config = configparser.ConfigParser()
-config.read(filename)
+config.read(args.files[0])
 
 def main():
-    with open(config_csv, 'w', newline='') as f:
+    with open(args.files[1], 'w', newline='') as f:
         writer = csv.writer(f)
+
+        if args.collapsed:
+            writer.writerow(('header', 'indent_style', 'indent_size'))
+
         for section in list(config.sections()):
-            for key, value in zip(list(config[section].keys()), 
-                                list(config[section].values())
-                                ):
-                writer.writerow((section, key, value))
+
+            keys = tuple(config[section].keys())
+            values = list(config[section].values())
+
+            if args.collapsed:
+                style, size = values 
+                writer.writerow((section, style, size))
+            else:
+                for key, value in zip(keys, values):
+                    writer.writerow((section, key, value))
 
 if __name__ == '__main__':
     main()

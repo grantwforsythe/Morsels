@@ -1,4 +1,3 @@
-*,.,p,y,",",i,n,d,e,n,t,_,s,t,y,l,e,",",s,p,a,c,e
-*,.,p,y,",",i,n,d,e,n,t,_,s,i,z,e,",",4
-*,.,j,s,",",i,n,d,e,n,t,_,s,t,y,l,e,",",s,p,a,c,e
-*,.,j,s,",",i,n,d,e,n,t,_,s,i,z,e,",",2
+header,indent_style,indent_size
+*.py,indent_style,indent_size
+*.js,indent_style,indent_size
