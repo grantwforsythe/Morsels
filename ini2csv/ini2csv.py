@@ -44,25 +44,22 @@ header,indent_style,indent_size
 *.js,space,2
 """
 import csv
-import sys
-import argparse
 import configparser
+from argparse import ArgumentParser
 
-parser = argparse.ArgumentParser()
+parser = ArgumentParser()
 
-parser.add_argument('files', type=str, nargs=2)
+parser.add_argument('ini_file')
+parser.add_argument('csv_file')
 parser.add_argument('--collapsed', action='store_true', help="Collapse output")  # if the argument is present, it will have some truthiness
 
 args = parser.parse_args()
 
-# filename = sys.argv[1]
-# config_csv = sys.argv[2]
-
 config = configparser.ConfigParser()
-config.read(args.files[0])
+config.read_file(args.ini_file)
 
 def main():
-    with open(args.files[1], 'w', newline='') as f:
+    with open(args.csv_file, 'wt', newline='') as f:
         writer = csv.writer(f)
 
         if args.collapsed:
@@ -77,8 +74,11 @@ def main():
                 style, size = values 
                 writer.writerow((section, style, size))
             else:
-                for key, value in zip(keys, values):
-                    writer.writerow((section, key, value))
+                writer.writerow(
+                    (section, key, value)
+                    for key, value in zip(keys, values)
+                )
+                
 
 if __name__ == '__main__':
     main()
