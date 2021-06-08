@@ -20,3 +20,5 @@ This weeks exercise made use of generators.
 This weeks exercise made use of generators, decorators, context managers, and various python modules.
 ## [Week 10](ordered_set/orderedset.py)
 This weeks exercise made use of OOB techniques - inheritance and abstract base classes; additionally, algorithm analysis (**big O**) and data structures were also required. 
+## [Week 11](ini2csv/ini2csv.py)
+This weeks exercise made us of command line arguments, config files, and csv files. The standard libary packages used were: *argparse*, *sys*, *cvs*, and *configparse*.
