@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 """
 Problem Statement
 
@@ -47,28 +48,20 @@ import sys
 import os
 import configparser
 
-# filename = sys.argv[1]
-# config_csv = sys.argv[2]
-
-filename = '.editorconfig'
-config_csv = 'editorconfig.csv'
-
-os.chdir('./ini2csv/')
-print(os.getcwd())
+filename = sys.argv[1]
+config_csv = sys.argv[2]
 
 config = configparser.ConfigParser()
 config.read(filename)
 
-py_style = config['*.py']['indent_style']
-py_size= config['*.py']['indent_size']
-js_style= config['*.js']['indent_style']
-js_size= config['*.js']['indent_size']
+def main():
+    with open(config_csv, 'w', newline='') as f:
+        writer = csv.writer(f)
+        for section in list(config.sections()):
+            for key, value in zip(list(config[section].keys()), 
+                                list(config[section].values())
+                                ):
+                writer.writerow((section, key, value))
 
-with open(config_csv, 'wt') as f:
-    writer = csv.writer(f)
-    for section in list(config.sections()):
-        for key, value in zip(list(config[section].keys()), list(config[section].values())):
-            writer.writerow(f'{section},{key},{value}')
-
-
-
+if __name__ == '__main__':
+    main()
