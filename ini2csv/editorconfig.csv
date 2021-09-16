@@ -1,0 +1,3 @@
+header,indent_style,indent_size
+*.py,indent_style,indent_size
+*.js,indent_style,indent_size
