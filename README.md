@@ -1,5 +1,3 @@
-# [Morsels](https://www.pythonmorsels.com/)
-This is a repo to house all of my Morsels exercises.
 ## [Week 1 - Add](add/add.py)
 The purpose of the exercise was to add n matrixes together. This exercse made use of: the built-in zip function, raising errors, and set and list comprehension extensively.
 ## [Week 2 - Circle](circle/circle.py)
